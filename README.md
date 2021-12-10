@@ -6,9 +6,13 @@
 
 L'objectif de cette séance de travaux pratiques évaluées est de réaliser une application web offrant un service de réduction d'URL (URL shortener)
 
+
 > *Le principe général de la réduction d'URL consiste à assigner une clé unique de quelques caractères à l'URL d'une page web spécifique. Un utilisateur désirant se rendre sur cette page web peut ensuite simplement fournir cette clé à la suite du nom de domaine du service de réduction, qui le redirige (redirection d'URL) alors vers la page appropriée.*
 > 
 > -- <cite>[Wikipedia - Article 'Réduction d'URL'](https://fr.wikipedia.org/wiki/R%C3%A9duction_d%27URL)</cite>
+
+
+![Capture d'écran de l'application](./figures/shortener.png)
 
 
 ### Mise en place de votre environnement
@@ -44,6 +48,8 @@ $ flask run --host=0.0.0.0 --port=5454
 ## Questions
 
 
+
+![Capture d'écran de l'application](./figures/shortener-nostyle.png)
 
 
 ## Quelques liens utiles
