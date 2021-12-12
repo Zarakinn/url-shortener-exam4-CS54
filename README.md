@@ -96,7 +96,10 @@ Le formulaire doit contenir deux champs, l'un pour l'URL longue (dénommé `targ
 ![Capture d'écran de l'application](./figures/add.png)
 **Figure 3.** Capture d'écran d'un exemple de formulaire permettant l'ajout d'un raccourci.
 
-La soumission du formulaire doit insérer les données dans la base de données. On peut imaginer qu'après l'insertion, la liste des URLs est présentée à nouveau à l'utilisateur ainsi que le formulaire d'ajout.
+La soumission du formulaire doit insérer les données dans la base de données. 
+La page doit présenter la liste des URL/raccourcis déjà connu et le formulaire
+
+On peut imaginer qu'après l'insertion, la liste des URLs est présentée à nouveau à l'utilisateur ainsi que le formulaire d'ajout.
 
 
 **Question 6**
@@ -112,16 +115,17 @@ short_code = ''.join(random.choice(alphabet) for i in range(SHORTCODE_LENGTH))
 ![Capture d'écran de l'application](./figures/add.png)
 **Figure 4.** Capture d'écran d'un exemple de formulaire permettant la génération automatique d'un raccourci.
 
+La page doit présenter la liste des URL/raccourcis déjà connu et le formulaire
 
 
-**Question 8**
+**Question 7**
 Votre application doit maintenant être capable de rediriger un client lorsque celui-ci accède à une URL raccourci.
 Les raccourcis seront gérés sur la route `/r/`. Ainsi, en utilisant les données exemples, l'accès à la route `/r/gitlab` devrait rediriger l'auteur de la requête sur l'URL associée `https://gitlab.telecomnancy.univ-lorraine.fr/`.
 
 Modifier vos pages HTML (*templates*) pour que les liens hypertextes des raccourci soient corrects.
 
 
-**Question 7**
+**Question 8**
 Votre application doit maintenant être capable de compter les visites d'un lien raccourci (et de mettre à jour les compteurs dans la base de données) avant de rediriger un client lorsque celui-ci accède à une URL raccourci.
 
 
