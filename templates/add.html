@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<disp>
+    <ul>
+        {%for element in liste%}
+            <li>
+                <a href="{{element[0]}}">{{element[0]}} </a>
+                <a href="{{element[1]}}">{{element[1]}} </a>
+                <a>Nombre de visite = {{element[2]}}</a>
+            </li>
+        {%endfor%}
+    </ul>
+</disp>
+
+<p>
+    <form action="/add" method ="POST">
+        <input autocomplete="off" autofocus name="target_url" placeholder="Long url" type="text">
+        <input autocomplete="off" autofocus name="short_code" placeholder="Short Code" type="text">
+        <input type="submit" value="Proposer">
+    </form>
+
+    <mess>
+    {%if not base_case%}
+
+        {% if error %}
+            <p>/!\ il y a eu un problème lors de l'insertion</p>
+        {% else %}
+            <p>Tout c'est super bien passé</p>
+        {%endif%}
+
+    {% endif %}
+    </mess>
+    
+</p>
+
+{% endblock %}
