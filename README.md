@@ -112,7 +112,7 @@ alphabet = string.ascii_letters + string.digits
 short_code = ''.join(random.choice(alphabet) for i in range(SHORTCODE_LENGTH))
 ```
 
-![Capture d'écran de l'application](./figures/add.png)
+![Capture d'écran de l'application](./figures/shorten.png)
 **Figure 4.** Capture d'écran d'un exemple de formulaire permettant la génération automatique d'un raccourci.
 
 La page doit présenter la liste des URL/raccourcis déjà connu et le formulaire
@@ -190,5 +190,5 @@ Prenez l'habitude d'associer à vos commits des messages pertinents qui décrive
 Vous veillerez à documenter/commenter le code Python que vous écrivez. Chaque fonction que vous définissez devrait être associée à commentaire pour préciser : le type et le sujet de chaque paramètre ; le type et la valeur de retour de la fonction ; les pré-conditions (et éventuellement post-conditions) de cette fonction.
 
 Vous pouvez utiliser si vous le souhaitez :
-- des [indications de types (*Type Hinting*)](https://docs.python.org/3/library/typing.html) disponibles depuis Python 3.5+ (https://docs.python.org/3/library/typing.html) et définis dans la [PEP 484](https://www.python.org/dev/peps/pep-0484/). Ils vous permettent d'annoter des types à vos paramètres, valeur de retour ou encore variables.
-- les [*docstrings* (PEP 257)*](https://www.python.org/dev/peps/pep-0257/)
+- des [indications de types (*Type Hinting*)](https://docs.python.org/3/library/typing.html) disponibles depuis Python 3.5+ et définis dans la [PEP 484](https://www.python.org/dev/peps/pep-0484/). Ils vous permettent d'annoter des types à vos paramètres, valeur de retour ou encore variables.
+- les [*docstrings* (PEP 257)](https://www.python.org/dev/peps/pep-0257/)
