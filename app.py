@@ -25,10 +25,27 @@ def GetDisplayData():
     data = c.fetchall()
     return data
 
+def DeleteLink(short_code):
+    db = getdb()
+    c = db.cursor()
+    c.execute("DELETE FROM link WHERE link.short_url=?",(short_code,))
+    db.commit()
+    print("Suppresion du lien pour "+short_code)
+    return
+
+@app.route("/")
+def main():
+    return redirect("/display")
+
 @app.route("/display")
 def display():
     data = GetDisplayData()
     return render_template("display.html",liste = data)
+
+@app.route("/display/delete/<string:short_code>")
+def display_delete(short_code):
+    DeleteLink(short_code)
+    return redirect("/display")
 
 @app.route("/add",methods=["GET","POST"])
 def add():
@@ -43,7 +60,7 @@ def add():
         c.execute("SELECT * FROM link WHERE link.long_url=? OR link.short_url=?",(url,code))
 
         x = c.fetchall()
-        if x == [] and url!="" and code!="": # il n'y a pas eu de pb d'unicité
+        if x == [] and url!="" and code!="" and not("/" in code): # il n'y a pas eu de pb d'unicité
 
             c.execute("INSERT INTO link VALUES (?,?,?)",(url,code,0))
             db.commit()
@@ -58,6 +75,10 @@ def add():
         data = GetDisplayData()
         return render_template("add.html",liste = data, base_case=True,error=False)
 
+@app.route("/add/delete/<string:short_code>")
+def add_delete(short_code):
+    DeleteLink(short_code)
+    return redirect("/add")
 
 def GenerateLink():
 
@@ -109,6 +130,11 @@ def shorten():
         data = GetDisplayData()
         return render_template("shorten.html", liste = data,base_case=True,error=False)
 
+@app.route("/shorten/delete/<string:short_code>")
+def shorten_delete(short_code):
+    DeleteLink(short_code)
+    return redirect("/shorten")
+
 @app.route("/r/<string:short_code>")
 def redirection(short_code):
     print("Redirection grace au short_code = "+ short_code)
@@ -120,7 +146,14 @@ def redirection(short_code):
     x = c.fetchall()
 
     if x!=[]:
+
+        c.execute("UPDATE link SET visite = ? WHERE long_url=?",(x[0][2]+1,x[0][0]))
+        print("Nouveau nb visite = " + str(x[0][2]+1))
+        db.commit()
+
         return redirect(x[0][0])
     else:
         return "erreur, on ne connait pas ce raccourci"
+
+
     
