@@ -2,7 +2,7 @@
 
 {% block body %}
 
-<disp>
+<div class="display">
     <ul>
         {%for element in liste%}
             <li>
@@ -13,9 +13,9 @@
             </li>
         {%endfor%}
     </ul>
-</disp>
+</div>
 
-<p>
+<div class = "disp_form">
     <form action="/shorten" method ="POST">
         <input autocomplete="off" autofocus name="target_url" placeholder="Long url" type="text">
         <input type="submit" value="Raccourcir">
@@ -25,12 +25,12 @@
     {%if not base_case%}
 
         {% if error %}
-            <p>/!\ Failed /!\ Il y a eu un problème lors de l'insertion</p>
+            <div class="error_msg">/!\ Failed /!\ Il y a eu un problème lors de l'insertion, vérifier qu'aucun paramètre n'est vide ou déjà dans la liste ci-dessus</div>
         {% else %}
-            <p>Tout c'est super bien passé</p>
+            <div class="success_msg">Insertion effectué, le lien est effectif</div>
         {%endif%}
 
     {% endif %}
     </mess>
-</p>
+</div>
 {% endblock %}

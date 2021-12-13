@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" href="../static/layout.css">
+{%block css%} {% endblock %}
 <head>
-    {%block css%}
-
-    {%endblock%}
+    <header>
+        <nav class="lay_header">
+            <li><a href="/">Display</a></li>
+            <li><a href="/add">Add</a></li>
+            <li><a href="/shorten">Shorten</a></li>
+        </nav>
+    </header>
 </head>
 <body>    
 {%block body%} 

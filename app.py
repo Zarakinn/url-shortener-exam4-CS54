@@ -153,7 +153,8 @@ def redirection(short_code):
 
         return redirect(x[0][0])
     else:
-        return "erreur, on ne connait pas ce raccourci"
+        return render_template("error.html",faux_lien=short_code)
+
 
 
     
