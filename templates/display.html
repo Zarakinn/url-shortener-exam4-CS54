@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block body %}}
+
+<ul>
+    {%for element in liste%}
+        <li>
+            <a href="{{element[0]}}">{{element[0]}}</a>
+            <a href="{{element[1]}}">{{element[1]}}</a>
+            <a>Nombre de visite = {{element[2]}}</a>
+        </li>
+    {%endfor%}
+</ul>
+
+
+{% endblock %}
